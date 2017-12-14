@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Auteur</th>
+      <th>Prix</th>
+      <th>Quantite</th>
+      <th>ht</th>
+      <th>ttc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows">
+        <td>{{row.title}}</td>
+        <td>{{row.author}}</td>
+        <td>{{row.price | currency:'EUR'}}</td>
+        <td>
+           <input type="number" [(ngModel)]="row.quantity"/>
+        </td>
+        <td class="right">{{row.ht() |currency:'EUR'}}</td>
+        <td class="right">{{row.ttc() |currency:'EUR'}}</td>
+        <td><button (click)="remove.emit(row)">Supprimer</button></td>
+    </tr>
+  </tbody>
+</table>
