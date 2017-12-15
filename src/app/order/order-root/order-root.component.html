@@ -1,1 +1,16 @@
 <app-order-table [rows]="rows" (remove)="removeRow($event)"></app-order-table>
+
+<input type="checkbox" [(ngModel)]="manualMode" >
+
+
+<app-order-manaul-form *ngIf="manualMode" (add)="addRow($event)" ></app-order-manaul-form>
+
+<div *ngIf="books$ | async as books; else noCatalog">
+    <app-order-catalog-form *ngIf="!manualMode" [catalog]="books" (add)="addRow($event)"></app-order-catalog-form>
+
+
+<ng-template #noCatalog>
+    <p>Pas de catalogue</p>
+</ng-template>
+
+</div>

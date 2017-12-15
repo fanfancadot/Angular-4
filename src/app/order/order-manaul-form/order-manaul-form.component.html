@@ -1,0 +1,25 @@
+<h2>Ajouter un livre</h2>
+<form (ngSubmit)="emitAdd()" #forminfo="ngForm" >
+
+    <label> Titre
+        <input type="text" name="title" required
+                [(ngModel)]= "manualFormData.title" >
+    </label>
+
+    <label> Auteur
+        <input type="text" name="author" required
+                [(ngModel)]= "manualFormData.author" >
+    </label>
+
+    <label> Prix
+        <input type="text" name="price" required
+                [(ngModel)]= "manualFormData.price" >
+    </label>
+    <label> Quantité
+        <input type="text" name="quantity" required
+                [(ngModel)]= "manualFormData.quantity" >
+    </label>
+    <input type="submit" value="Ajouter" 
+            [disabled]="forminfo.invalid" >
+
+</form>

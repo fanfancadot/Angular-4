@@ -1,0 +1,16 @@
+<h2>Ajouter depuis le catalogue</h2>
+<form (ngSubmit)="emitAdd()" #formcatalog="ngForm">
+  <label>Livre
+    <select name="book"
+            [(ngModel)]="catalogFormData.book"   required>
+        <option *ngFor="let book of catalog"
+            [ngValue]="book">{{book.title}}
+        </option>
+      
+    </select>
+  </label>
+  <label>Quantité
+    <input type="number" name="quantity" [(ngModel)]="catalogFormData.quantity" required>
+  </label>
+  <input type="submit" value="Ajouter" [disabled]="formcatalog.invalid" >
+</form>

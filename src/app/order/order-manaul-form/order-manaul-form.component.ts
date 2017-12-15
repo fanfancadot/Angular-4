@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { OrderRow } from '../order-rows.model';
 
 @Component({
   selector: 'app-order-manaul-form',
@@ -7,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderManaulFormComponent implements OnInit {
 
+@Output() add = new EventEmitter<OrderRow>();
+
+manualFormData = new OrderRow();
+
+emitAdd(){
+  this.add.emit(this.manualFormData);
+  this.manualFormData = new OrderRow();
+}
   constructor() { }
 
   ngOnInit() {
